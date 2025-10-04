@@ -35,7 +35,15 @@ app.use("/api/v1/post", postRoute);
 app.use("/api/v1/message", messageRoute);
 
 app.get("/", (req, res) => {
-    res.json({ message: "Instaclone Backend API is running!" });
+  res.json({
+    message: "Instaclone Backend API is running!",
+    status: "success",
+    endpoints: {
+      auth: "/api/v1/user",
+      posts: "/api/v1/post",
+      messages: "/api/v1/message",
+    },
+  });
 });
 
 server.listen(PORT, () => {
